@@ -1,0 +1,43 @@
+.continents-area {
+  width: 100%;
+  display: tablle;
+}
+
+.side-area, .countries-area {
+  vertical-align: top;
+  display:table-cell;
+}
+
+.side-area {
+  width: 20%;
+  background-color: #ddd;
+  padding: 10px;
+}
+
+.countries-area {
+  width: 80%;
+}
+
+input {
+  width: 100%;
+}
+
+.country-miniature {
+  width: 25%;
+  height: 60px;
+  padding: 10px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  border:1px solid black;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  &.selected {
+    background-color: #487e48;
+  }
+
+  &:hover {
+    background-color: #0f0;
+  }
+}

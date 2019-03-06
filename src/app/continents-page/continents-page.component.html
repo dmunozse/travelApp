@@ -1,0 +1,33 @@
+<div class="continents-area">
+	<aside class="side-area">
+		<form>
+			<input #country (input)="searchCountry(country.value)" placeholder="Buscar país...">
+    </form>
+    <ul class="menu">
+      <li [class.selected]="isActiveContinent(continent)" 
+          *ngFor="let continent of continents" 
+          (click)="updateContinent(continent)">
+        {{continent.name}}
+      </li>
+    </ul>
+  </aside>
+
+  <section class="countries-area">
+    <h2 *ngIf="selectedContinent">{{ selectedContinent.name | uppercase}}</h2>
+    <li [class.selected]="isActiveCountry(country)" 
+        *ngFor="let country of countries" 
+        (click)="onSelectCountry(country)"
+        class="country-miniature">
+      <span>{{ country.name }}</span>
+    </li>
+    <span *ngIf="selectedCountry">País seleccionado: {{ selectedCountry.name }}</span>
+    <h2>Países filtrados por nombre</h2>
+    <li [class.selected]="isActiveCountry(country)" 
+        *ngFor="let country of getCountries()" 
+        (click)="onSelectCountry(country)"
+        class="country-miniature">
+      <span>{{ country.name }}</span>
+    </li>
+    <span *ngIf="!getCountries()?.length">No hay resultados de búsqueda</span>
+  </section>
+</div>
