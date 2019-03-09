@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { Country } from '../country';
 
 @Component({
   selector: 'app-country-page',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./country-page.component.scss']
 })
 export class CountryPageComponent implements OnInit {
+
+  @Input() country: Country;
 
   constructor() { }
 

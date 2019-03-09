@@ -15,19 +15,16 @@
   <section class="countries-area">
     <h2 *ngIf="selectedContinent">{{ selectedContinent.name | uppercase}}</h2>
     <li [class.selected]="isActiveCountry(country)" 
-        *ngFor="let country of countries" 
+        *ngFor="let country of getFilteredCountries()" 
         (click)="onSelectCountry(country)"
         class="country-miniature">
       <span>{{ country.name }}</span>
     </li>
-    <span *ngIf="selectedCountry">País seleccionado: {{ selectedCountry.name }}</span>
-    <h2>Países filtrados por nombre</h2>
-    <li [class.selected]="isActiveCountry(country)" 
-        *ngFor="let country of getCountries()" 
-        (click)="onSelectCountry(country)"
-        class="country-miniature">
-      <span>{{ country.name }}</span>
-    </li>
-    <span *ngIf="!getCountries()?.length">No hay resultados de búsqueda</span>
+    <span *ngIf="!getFilteredCountries()?.length">No hay resultados de búsqueda</span>
+    <hr>
+    <div *ngIf="selectedCountry">
+      <h1>País seleccionado:</h1>
+      <app-country-page [country]="selectedCountry"></app-country-page>
+    </div>
   </section>
 </div>

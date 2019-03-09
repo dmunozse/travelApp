@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Continent } from '../continent';
-import { CONTINENTS } from '../mock-continents';
+import { ContinentService } from '../continent.service';
 
 import { Country } from '../country';
-import { COUNTRIES } from '../mock-countries';
+//import { COUNTRIES } from '../mock-countries';
+import { CountryService } from '../country.service';
 
 import { ContinentPipe } from '../continent.pipe';
 import { CountryPipe } from '../country.pipe';
@@ -26,28 +27,40 @@ function filterCountriesByName(countries: any, name: string): any[] {
   styleUrls: ['./continents-page.component.scss']
 })
 export class ContinentsPageComponent implements OnInit {
-  continents = CONTINENTS;
+  continents: Continent[];
   selectedContinent: Continent;
 
-  countries = COUNTRIES;
+  countries: Country[];
   selectedCountry: Country;
 
   private _filteredCountries: any[] = [];
 
-  constructor() {
-    this.updateContinent(CONTINENTS[0]);
+  constructor(private continentService: ContinentService, private countryService: CountryService) {
+    
   }
 
   ngOnInit() {
+    this.getContinents();
+    this.getCountries();
+    this.updateContinent(this.continents[0]);
+  }
+
+  getContinents() {
+    this.continentService.getContinents()
+      .subscribe(continents => this.continents = continents);
+  }
+
+  getCountries() {
+    this.countryService.getCountries()
+      .subscribe(countries => this.countries = countries);
+  }
+
+  getFilteredCountries() {
+    return this._filteredCountries;
   }
 
   isActiveContinent(continent: Continent) {
     return continent === this.selectedContinent;
-  }
-
-  updateContinent(continent: Continent) {
-    this.selectedContinent = continent;
-    this._filteredCountries = filterCountriesByContinent(this.countries, this.selectedContinent.id);
   }
 
   isActiveCountry(country: Country) {
@@ -63,12 +76,13 @@ export class ContinentsPageComponent implements OnInit {
     this.updateCountryList(country);
   }
 
-  updateCountryList(name: string) {
-    this._filteredCountries = filterCountriesByName(this._filteredCountries, name);
+  updateContinent(continent: Continent) {
+    this.selectedContinent = continent;
+    this._filteredCountries = filterCountriesByContinent(this.countries, this.selectedContinent.id);
   }
 
-  getCountries() {
-    return this._filteredCountries;
+  updateCountryList(name: string) {
+    this._filteredCountries = filterCountriesByName(this._filteredCountries, name);
   }
 
 }
