@@ -4,7 +4,6 @@ import { Continent } from '../continent';
 import { ContinentService } from '../continent.service';
 
 import { Country } from '../country';
-//import { COUNTRIES } from '../mock-countries';
 import { CountryService } from '../country.service';
 
 import { ContinentPipe } from '../continent.pipe';
@@ -31,13 +30,13 @@ export class ContinentsPageComponent implements OnInit {
   selectedContinent: Continent;
 
   countries: Country[];
-  selectedCountry: Country;
 
   private _filteredCountries: any[] = [];
 
-  constructor(private continentService: ContinentService, private countryService: CountryService) {
-    
-  }
+  constructor(
+    private continentService: ContinentService, 
+    private countryService: CountryService) 
+  { }
 
   ngOnInit() {
     this.getContinents();
@@ -61,14 +60,6 @@ export class ContinentsPageComponent implements OnInit {
 
   isActiveContinent(continent: Continent) {
     return continent === this.selectedContinent;
-  }
-
-  isActiveCountry(country: Country) {
-    return country === this.selectedCountry;
-  }
-
-  onSelectCountry(country: Country) {
-    this.selectedCountry = country;
   }
 
   searchCountry(country: string) {

@@ -14,4 +14,8 @@ export class CountryService {
   getCountries(): Observable<Country[]> {
     return of(COUNTRIES);
   }
+
+  getCountry(url: string): Observable<Country> {
+    return of(COUNTRIES.find(country => country.url === url));
+  }
 }
