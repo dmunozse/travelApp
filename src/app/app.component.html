@@ -1,9 +1,18 @@
-<mat-toolbar color="primary" class="app-header">
-    <span>TravelApp</span>
-    <span class="toolbar-spacer"></span>
-    <mat-icon svgIcon="twitter"></mat-icon>
-</mat-toolbar>
-<nav>
-    <a routerLink="/countries">Países</a>
-</nav>
-<router-outlet></router-outlet>
+<div class="main-container">
+    <mat-toolbar color="primary" class="app-header">
+        <span>TravelApp</span>
+        <span class="toolbar-spacer"></span>
+        <mat-icon svgIcon="twitter"></mat-icon>
+    </mat-toolbar>
+    <main>
+        <nav>
+            <a routerLink="/countries">Países</a>
+        </nav>
+        <router-outlet></router-outlet>
+        <mat-toolbar color="secundary" class="app-footer">
+            <span>TravelApp</span>
+            <span class="toolbar-spacer"></span>
+            <mat-icon svgIcon="twitter"></mat-icon>
+        </mat-toolbar>
+    </main>
+</div>
