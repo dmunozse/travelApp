@@ -13,15 +13,18 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <h2 *ngIf="selectedContinent">{{ selectedContinent.name | uppercase}}</h2>
-    <mat-card *ngFor="let country of getFilteredCountries()" 
-        class="country-miniature">
-      <img mat-card-image>
-      <mat-card-content>
-        <a routerLink="{{ country.url }}">
-          <span>{{ country.name }}</span>
-        </a>
-      </mat-card-content>
-    </mat-card>
+    <mat-grid-list cols="3" rowHeight="4:3" gutterSize="5px">
+      <mat-grid-tile *ngFor="let country of getFilteredCountries()">
+        <mat-card class="country-miniature">
+          <img *ngIf="country.src" [src]="country.src" mat-card-image>
+          <mat-card-content>
+            <a routerLink="{{ country.url }}">
+              <span>{{ country.name }}</span>
+            </a>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
     <span *ngIf="!getFilteredCountries()?.length">No hay resultados de búsqueda</span>
   </mat-sidenav-content>
 </mat-sidenav-container>
