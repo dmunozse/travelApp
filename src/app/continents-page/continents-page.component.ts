@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { trigger, transition, animate, style, query, stagger } from '@angular/animations';
 
 import { Continent } from '../continent';
 import { ContinentService } from '../continent.service';
@@ -23,7 +24,27 @@ function filterCountriesByName(countries: any, name: string): any[] {
 @Component({
   selector: 'app-continents-page',
   templateUrl: './continents-page.component.html',
-  styleUrls: ['./continents-page.component.scss']
+  styleUrls: ['./continents-page.component.scss'],
+  animations: [
+    trigger('filterAnimation', [
+      transition(':enter, * => 0, * => -1', []),
+      transition(':increment', [
+        query(':enter', [
+          style({ opacity: 0, width: '0px' }),
+          stagger(50, [
+            animate('300ms ease-out', style({ opacity: 1, width: '*' })),
+          ]),
+        ])
+      ]),
+      transition(':decrement', [
+        query(':leave', [
+          stagger(50, [
+            animate('300ms ease-out', style({ opacity: 0, width: '0px' })),
+          ]),
+        ])
+      ])
+    ])
+  ]
 })
 export class ContinentsPageComponent implements OnInit {
   continents: Continent[];
@@ -32,6 +53,7 @@ export class ContinentsPageComponent implements OnInit {
   countries: Country[];
 
   private _filteredCountries: any[] = [];
+  public countriesDisplayed = -1;
 
   constructor(
     private continentService: ContinentService, 
@@ -63,8 +85,17 @@ export class ContinentsPageComponent implements OnInit {
   }
 
   searchCountry(country: string) {
+    country = country ? country.trim() : '';
+
     this.updateContinent(this.selectedContinent);
     this.updateCountryList(country);
+
+    const newTotal = this._filteredCountries.length;
+    if (this.countriesDisplayed != newTotal) {
+      this.countriesDisplayed = newTotal;
+    } else if (!country) {
+      this.countriesDisplayed = -1;
+    }
   }
 
   updateContinent(continent: Continent) {

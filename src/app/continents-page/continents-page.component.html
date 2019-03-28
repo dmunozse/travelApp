@@ -11,16 +11,14 @@
         </li>
       </ul>
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content [@filterAnimation]="countriesDisplayed">
     <h2 *ngIf="selectedContinent">{{ selectedContinent.name | uppercase}}</h2>
     <mat-grid-list cols="3" rowHeight="4:3" gutterSize="5px">
       <mat-grid-tile *ngFor="let country of getFilteredCountries()">
-        <mat-card class="country-miniature">
+        <mat-card class="country-miniature" routerLink="{{ country.url }}">
           <img *ngIf="country.src" [src]="country.src" mat-card-image>
           <mat-card-content>
-            <a routerLink="{{ country.url }}">
-              <span>{{ country.name }}</span>
-            </a>
+            <span>{{ country.name }}</span>
           </mat-card-content>
         </mat-card>
       </mat-grid-tile>
