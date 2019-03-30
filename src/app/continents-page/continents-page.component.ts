@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { trigger, transition, animate, style, query, stagger } from '@angular/animations';
 
 import { Continent } from '../continent';
@@ -26,6 +26,16 @@ function filterCountriesByName(countries: any, name: string): any[] {
   templateUrl: './continents-page.component.html',
   styleUrls: ['./continents-page.component.scss'],
   animations: [
+    trigger('pageAnimations', [
+      transition(':enter', [
+        query('.country-miniature', [
+          style( {opacity: 0, transform: 'translateY(-100px)'} ),
+          stagger(-50 , [
+            animate('500ms cubic-bezier(0.35, 0, 0.25, 1)', style({ opacity: 1, transform: 'none' }))
+          ])
+        ])
+      ])
+    ]),
     trigger('filterAnimation', [
       transition(':enter, * => 0, * => -1', []),
       transition(':increment', [
@@ -47,6 +57,9 @@ function filterCountriesByName(countries: any, name: string): any[] {
   ]
 })
 export class ContinentsPageComponent implements OnInit {
+  @HostBinding('@pageAnimations')
+  public animatePage = true;
+
   continents: Continent[];
   selectedContinent: Continent;
 
@@ -56,8 +69,8 @@ export class ContinentsPageComponent implements OnInit {
   public countriesDisplayed = -1;
 
   constructor(
-    private continentService: ContinentService, 
-    private countryService: CountryService) 
+    private continentService: ContinentService,
+    private countryService: CountryService)
   { }
 
   ngOnInit() {

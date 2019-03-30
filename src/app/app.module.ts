@@ -11,10 +11,11 @@ import { CountryPipe } from './country.pipe';
 import { ContinentPipe } from './continent.pipe';
 import { AppRoutingModule } from './app-routing.module';
 import { AppMaterialModule } from './app-material.module';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   imports:      [ BrowserModule, BrowserAnimationsModule, FormsModule, AppRoutingModule, AppMaterialModule ],
-  declarations: [ AppComponent, HelloComponent, ContinentsPageComponent, CountryPageComponent, CountryPipe, ContinentPipe ],
+  declarations: [ AppComponent, HelloComponent, ContinentsPageComponent, CountryPageComponent, CountryPipe, ContinentPipe, HomePageComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
