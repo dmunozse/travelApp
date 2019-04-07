@@ -34,6 +34,9 @@ function filterCountriesByName(countries: any, name: string): any[] {
             animate('500ms cubic-bezier(0.35, 0, 0.25, 1)', style({ opacity: 1, transform: 'none' }))
           ])
         ])
+      ]),
+      transition(':leave', [
+        animate('100ms ease-out', style({ opacity: 0 }))
       ])
     ]),
     trigger('filterAnimation', [
