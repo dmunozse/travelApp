@@ -36,7 +36,7 @@ import { animate, animateChild, group, query, style, transition, trigger, stagge
           style({ opacity:0,  transform: 'translateX(100%)', 'background-color':'red'})
         ]),
         query(':leave', [
-          query('.title', [
+          query('.section-name', [
             style('*'),
             stagger(-30, [
               animate('500ms cubic-bezier(0.35, 0, 0.25, 1)', style({ opacity: 0, transform: 'translateY(-100px)' }))
@@ -53,6 +53,9 @@ import { animate, animateChild, group, query, style, transition, trigger, stagge
         query(':enter', animateChild())
       ]),
       transition('* => ContinentsPage', [
+        query(':enter', animateChild())
+      ]),
+      transition('* => CountryPage', [
         query(':enter', animateChild())
       ]),
       transition('* => *', [])

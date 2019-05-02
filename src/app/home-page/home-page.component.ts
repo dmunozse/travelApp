@@ -8,7 +8,7 @@ import { trigger, transition, animate, style, query, stagger } from '@angular/an
   animations: [
     trigger('pageAnimations', [
       transition(':enter', [
-        query('.title', [
+        query('.section-name', [
           style({opacity: 0, transform: 'translateY(-100px)'}),
           stagger(-30, [
             animate('500ms ease-out', style({ opacity: 1, transform: 'none' }))

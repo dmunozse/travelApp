@@ -18,11 +18,62 @@
 }
 
 .app-header {
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.app-toolbar {
   position: fixed;
   z-index: 2;
   top: 0;
+
+  .social-links {
+    list-style: none;
+
+    li {
+      display: inline-block;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+  }
+
+  .toolbar-spacer {
+    flex: 1 1 auto;
+  }
 }
 
-.toolbar-spacer {
-  flex: 1 1 auto;
+.app-logo {
+  padding: 50px 0;
+  text-align: center;
+  color: #4B5258;
+  border-bottom: 1px solid #e1e1e1;
+
+  i {
+    font-size: 10rem;
+  }
+
+  h1 {
+    margin-bottom: 0;
+  }
+}
+
+.app-menu {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+
+  .main-menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    .menu-item {
+      display: inline-block;
+
+      a {
+        padding: 15px;
+        text-decoration: none;
+      }
+    }
+  }
 }

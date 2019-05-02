@@ -13,6 +13,9 @@ h1 {
     position: relative;
     padding: 50px 0 20px;
     margin: 0 0 50px;
+    font-size: 3.5rem;
+    font-family: 'Reenie Beanie';
+    text-transform: uppercase;
 
     &:after {
         content: "";
@@ -23,21 +26,125 @@ h1 {
         transform: translateX(-50%);
         bottom: 0;
     }
-    
+}
+
+.section-content {
+    width: 100%;
+    display: inline-block;
+}
+
+.left-article, .right-articles {
+    float: left;
+}
+
+.left-article {
+    width: 33.33%;
+
+    .entry-image {
+        width: 100%;
+        min-height: 465px;
+        background-image: url('/assets/countries/brazil.jpg');
+        background-position: top center;
+        background-size: cover;
+    }
+
+    .entry-title {
+        width: 100%;
+        position: absolute;
+        top: 20px;
+        text-transform: uppercase;
+        font-size: 3rem;
+        font-weight: bold;
+        font-family: 'Reenie Beanie';
+        text-align: center;
+        color: #4B5258;
+
+        span {
+            display: block;
+            font-size: 2rem;
+        }
+    }
+}
+
+.right-articles {
+    width: 66.66%;
+
+    > div {
+        padding-left: 5%;
+    }
 }
 
 .entry-article {
     width: 100%;
     display: inline-block;
     margin-bottom: 25px;
+    position: relative;
 
     .entry-image {
         float: left;
-        margin-right: 25px;
+        border-radius: 5px;
+        overflow: hidden;
+        cursor: pointer;
     }
 
-    .entry-header {
-        font-weight: bold;
-        margin-bottom: 10px;
+    .entry-content {
+        padding-left: 330px;
+
+        .entry-header {
+            margin-bottom: 10px;
+            font-family: 'Reenie Beanie';
+            font-size: 3rem;
+
+            a {
+                color: #4B5258;
+                text-decoration: none;
+
+                &:hover {
+                    color: #f75c69;
+                }
+            }
+
+            span {
+                display: block;
+                font-size: 2rem;
+            }
+        }
+
+        .entry-text {
+            a {
+                color: #f75c69;
+
+                &.block {
+                    display: inline-block;
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+}
+
+.next-destiny {
+    width: 100%;
+    display: inline-block;
+    min-height: 620px;
+    background-image: url('/assets/countries/germany-medium.jpg');
+    background-position: top center;
+    background-size: cover;
+    position: relative;
+
+    .destination-name {
+        width: 100%;
+        position: absolute;
+        top: 20px;
+        text-transform: uppercase;
+        font-size: 4rem;
+        font-family: 'Reenie Beanie';
+        text-align: center;
+        color: white;
+
+        span {
+            display: block;
+            font-size: 2rem;
+        }
     }
 }

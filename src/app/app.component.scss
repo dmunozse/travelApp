@@ -7,7 +7,7 @@
 
   main {
     position: relative;
-    min-height: 300px;
+    min-height: 600px;
   }
 }
 
@@ -16,11 +16,8 @@ p {
 }
 
 nav a {
-  padding: 5px 10px;
   text-decoration: none;
-  margin-top: 10px;
   display: inline-block;
-  background-color: #eee;
   border-radius: 4px;
 }
 nav a:visited, a:link {
@@ -32,4 +29,8 @@ nav a:hover {
 }
 nav a.active {
   color: #039be5;
+}
+
+.app-footer {
+  font-size: 1rem;
 }
