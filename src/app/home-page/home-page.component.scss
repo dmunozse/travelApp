@@ -85,19 +85,13 @@ h1 {
     width: 100%;
     display: inline-block;
     margin-bottom: 25px;
-    position: relative;
 
     .entry-image {
         float: left;
         border-radius: 5px;
         overflow: hidden;
         cursor: pointer;
-
-        /*
-        &:hover {
-            opacity: 0.7;
-        }
-        */
+        position: relative;
 
         &::before {
             content: '';

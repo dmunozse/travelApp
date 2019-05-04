@@ -1,22 +1,77 @@
 .mat-sidenav-container {
-  min-height: 200px;
-  max-width: 1200px;
-  margin: 0 auto;
+  min-height: 400px;
+  background-color: transparent;
 }
 
 .mat-sidenav-content {
+  padding-left: 0.7rem;
   height: auto;
 }
 
 .mat-sidenav {
   background-color: #ddd;
-  padding: 10px;
+  padding: 0.5rem;
   font-size: 1.25rem;
+  border-radius: 5px;
+
+  .mat-sidenav-content {
+    padding: 0.5rem;
+  }
 }
 
-input {
+.form-group {
   width: 100%;
-  font-size: 1.25rem;
+  position: relative;
+
+  .form-control-feedback {
+    position: absolute;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    color: #aaaaaa;
+  }
+
+  .form-control {
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    color: #4B5258;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    font-size: 1rem;
+    padding: .375rem .75rem;
+
+    &.has-search {
+      padding-left: 2.375rem;
+    }
+
+    &:focus {
+      border-color: #80bdff;
+      outline: 0;
+      box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    }
+
+    &::placeholder {
+      color: #aaaaaa;
+    }
+  }
+}
+
+.mat-sidenav-container, .selected-continent {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.selected-continent {
+  padding: 1rem 0;
+  text-align: center;
+
+  h2 {
+    color: #4B5258;
+    font-family: 'Reenie Beanie';
+    font-size: 3rem;
+  }
 }
 
 .country-miniature {

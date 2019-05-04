@@ -30,7 +30,7 @@ function filterCountriesByName(countries: any, name: string): any[] {
       transition(':enter', [
         query('.country-miniature', [
           style( {opacity: 0, transform: 'translateY(-100px)'} ),
-          stagger(-50 , [
+          stagger(50 , [
             animate('500ms cubic-bezier(0.35, 0, 0.25, 1)', style({ opacity: 1, transform: 'none' }))
           ])
         ])
@@ -56,6 +56,17 @@ function filterCountriesByName(countries: any, name: string): any[] {
           ]),
         ])
       ])
+    ]),
+    trigger('listAnimation', [
+      transition(':enter', []),
+      transition('* => *', [
+        query(':enter', [
+          style({ opacity: 0, transform: 'translateY(-100px)' }),
+          stagger(50, [
+            animate('300ms ease-out', style({ opacity: 1, transform: 'none' })),
+          ]),
+        ])
+      ]),
     ])
   ]
 })

@@ -4,15 +4,18 @@
 
   li {
     cursor: pointer;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
 
     &.selected {
       color: white;
-      background-color: #00f;
+      background-color: #3f51b5;
     }
 
     &:hover {
       color: white;
-      background-color: #5858f8;
+      background-color: #6473c7;
     }
   }
 }

@@ -1,18 +1,23 @@
+<div class="selected-continent">
+  <h2 *ngIf="selectedContinent">- {{ selectedContinent.name | uppercase}} -</h2>
+</div>
 <mat-sidenav-container>
   <mat-sidenav mode="side" opened>
-    <form>
-        <input #country (input)="searchCountry(country.value)" placeholder="Buscar país...">
+    <div class="mat-sidenav-content">
+      <form class="form-group">
+        <span class="fa fa-search form-control-feedback"></span>
+        <input class="form-control has-search" #country (input)="searchCountry(country.value)"
+          placeholder="Buscar país...">
       </form>
       <ul class="menu">
-        <li [class.selected]="isActiveContinent(continent)" 
-            *ngFor="let continent of continents" 
-            (click)="updateContinent(continent)">
+        <li [class.selected]="isActiveContinent(continent)" *ngFor="let continent of continents"
+          (click)="updateContinent(continent)">
           {{continent.name}}
         </li>
       </ul>
+    </div>
   </mat-sidenav>
-  <mat-sidenav-content [@filterAnimation]="countriesDisplayed">
-    <h2 *ngIf="selectedContinent">{{ selectedContinent.name | uppercase}}</h2>
+  <mat-sidenav-content [@listAnimation]="selectedContinent" [@filterAnimation]="countriesDisplayed">
     <mat-grid-list cols="3" rowHeight="4:3" gutterSize="5px">
       <mat-grid-tile *ngFor="let country of getFilteredCountries()">
         <mat-card class="country-miniature" routerLink="{{ country.url }}">
