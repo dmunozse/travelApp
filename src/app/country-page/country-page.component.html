@@ -3,3 +3,24 @@
         <h3>{{ country.name }}</h3>
     </div>
 </div>
+<div class="content">
+    <section class="introduction">
+        <h2 class="section-name">¡Bienvenidos a {{ country.name }}!</h2>
+        <div class="section-content">
+            <h2 class="introduction-title">
+                Italia, hogar de muchas de las mejores obras de arte, arquitectura y gastronomía del mundo, se siente eufórica, inspira y se mueve como ninguna otra.
+            </h2>
+            <div class="introduction-text" [@openClose]="isExpanded ? 'open' : 'closed'">
+                <h3>Historia</h3>
+                <p>
+                    Epicentre of the Roman Empire and birthplace of the Renaissance,
+                </p>
+            </div>
+            <div class="introduction-expanded-link">
+                <a (click)="toggle()">
+                    Leer más<i class="fas fa-angle-down"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+</div>

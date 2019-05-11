@@ -36,6 +36,9 @@
                 <li class="menu-item">
                     <a id="country" routerLink="/countries/spain">España</a>
                 </li>
+                <li class="menu-item">
+                    <mat-slide-toggle color="primary" (change)="toggleAnimations()" [checked]="!animationsDisabled"></mat-slide-toggle>
+                </li>
             </ul>
         </nav>
     </div>

@@ -1,7 +1,3 @@
-h1 {
-    color: red;
-}
-
 .country-image {
     width: 100%;
     height: 500px;
@@ -27,5 +23,42 @@ h1 {
         color: white;
         font-variant: all-small-caps;
         text-shadow: 7px 7px rgba(0, 0, 0, 0.25);
+    }
+}
+
+.introduction {
+    .section-name {
+        margin: 4rem 0;
+    }
+
+    .introduction-title {
+        margin: 4rem 0;
+        font-weight: normal;
+        color: #676b6f;
+    }
+
+    .introduction-text {
+        //display: none;
+        margin: 4rem 0;
+        overflow: hidden;
+    }
+
+    .introduction-expanded-link {
+        width: 150px;
+        padding-top: 2rem;
+        margin: 0 auto;
+        border-top: 2px solid #c5c6c7;
+        text-align: center;
+
+        a {
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #f75c69;
+            cursor: pointer;
+
+            i {
+                margin-left: 10px;
+            }
+        }
     }
 }

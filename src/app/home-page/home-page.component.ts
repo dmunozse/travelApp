@@ -16,7 +16,9 @@ import { trigger, transition, animate, style, query, stagger } from '@angular/an
         ])
       ]),
       transition(':leave', [
-        animate('100ms ease-out', style({ opacity: 0 }))
+        query('.section-name', [
+          animate('500ms cubic-bezier(0.35, 0, 0.25, 1)', style({ opacity: 0, transform: 'translateY(-100px)' }))
+        ])
       ])
     ])
   ]

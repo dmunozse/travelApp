@@ -1,5 +1,5 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
-import { trigger, transition, animate, style, query, stagger } from '@angular/animations';
+import { trigger, transition, animate, style, query, stagger, animateChild } from '@angular/animations';
 
 import { Continent } from '../continent';
 import { ContinentService } from '../continent.service';
@@ -30,13 +30,19 @@ function filterCountriesByName(countries: any, name: string): any[] {
       transition(':enter', [
         query('.country-miniature', [
           style( {opacity: 0, transform: 'translateY(-100px)'} ),
-          stagger(50 , [
+          stagger(100 , [
             animate('500ms cubic-bezier(0.35, 0, 0.25, 1)', style({ opacity: 1, transform: 'none' }))
           ])
-        ])
+        ]),
+        //query(':enter', animateChild())
       ]),
       transition(':leave', [
-        animate('100ms ease-out', style({ opacity: 0 }))
+        query('.country-miniature', [
+          stagger(-100 , [
+            animate('500ms cubic-bezier(0.35, 0, 0.25, 1)', style({ opacity: 0, transform: 'translateY(-100px)' }))
+          ])
+        ]),
+        //query(':leave', animateChild())
       ])
     ]),
     trigger('filterAnimation', [
@@ -44,15 +50,15 @@ function filterCountriesByName(countries: any, name: string): any[] {
       transition(':increment', [
         query(':enter', [
           style({ opacity: 0, width: '0px' }),
-          stagger(50, [
-            animate('300ms ease-out', style({ opacity: 1, width: '*' })),
+          stagger(100, [
+            animate('500ms ease-out', style({ opacity: 1, width: '*' })),
           ]),
-        ])
+        ], { optional: true })
       ]),
       transition(':decrement', [
         query(':leave', [
-          stagger(50, [
-            animate('300ms ease-out', style({ opacity: 0, width: '0px' })),
+          stagger(100, [
+            animate('500ms ease-out', style({ opacity: 0, width: '0px' })),
           ]),
         ])
       ])
@@ -61,11 +67,18 @@ function filterCountriesByName(countries: any, name: string): any[] {
       transition(':enter', []),
       transition('* => *', [
         query(':enter', [
-          style({ opacity: 0, transform: 'translateY(-100px)' }),
-          stagger(50, [
-            animate('300ms ease-out', style({ opacity: 1, transform: 'none' })),
-          ]),
-        ])
+          style({ opacity: 0, transform: 'translateY(-100px)' })
+        ], { optional: true }),
+        query(':leave', [
+          stagger(100, [
+            animate('500ms ease-out', style({ opacity: 0, transform: 'translateY(-100px)' }))
+          ])
+        ], { optional: true }),
+        query(':enter', [
+          stagger(100, [
+            animate('500ms ease-out', style({ opacity: 1, transform: 'none' })),
+          ])
+        ], { optional: true })
       ]),
     ])
   ]
