@@ -1,0 +1,44 @@
+.parallax {
+    background-color: #fedcc8;
+    perspective: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.parallax__layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    img {
+        display: block;
+        position: absolute;
+        bottom: 0;
+    }
+}
+
+.parallax__cover {
+    background:white;
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}
+
+$parallax__layers: 6;
+
+@for $i from 0 through $parallax__layers {
+    $x: ($parallax__layers - $i) / 2;
+    .parallax__layer__#{$i} {
+        transform: translateZ(-100 * $x#{px}) scale($x + 1);
+    }
+}
