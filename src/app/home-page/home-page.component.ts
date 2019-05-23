@@ -8,7 +8,7 @@ import { trigger, transition, animate, style, query, stagger } from '@angular/an
   animations: [
     trigger('pageAnimations', [
       transition(':enter', [
-        query('.section-name', [
+        query('.animate-logo', [
           style({opacity: 0, transform: 'translateY(-100px)'}),
           stagger(-30, [
             animate('500ms ease-out', style({ opacity: 1, transform: 'none' }))
@@ -16,7 +16,7 @@ import { trigger, transition, animate, style, query, stagger } from '@angular/an
         ])
       ]),
       transition(':leave', [
-        query('.section-name', [
+        query('.animate-logo', [
           animate('500ms cubic-bezier(0.35, 0, 0.25, 1)', style({ opacity: 0, transform: 'translateY(-100px)' }))
         ])
       ])

@@ -8,19 +8,129 @@
         <h2 class="section-name">¡Bienvenidos a {{ country.name }}!</h2>
         <div class="section-content">
             <h2 class="introduction-title">
-                Italia, hogar de muchas de las mejores obras de arte, arquitectura y gastronomía del mundo, se siente eufórica, inspira y se mueve como ninguna otra.
+                {{ country.description }}
             </h2>
             <div class="introduction-text" [@openClose]="isExpanded ? 'open' : 'closed'">
                 <h3>Historia</h3>
                 <p>
-                    Epicentre of the Roman Empire and birthplace of the Renaissance,
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at luctus mi. Quisque vel purus
+                    vestibulum, mollis erat at, egestas mi. Pellentesque faucibus, nulla nec luctus consectetur, nunc
+                    nisi tristique diam, et imperdiet enim leo id turpis. Nulla lectus libero, suscipit a massa sed,
+                    vestibulum rutrum lacus. Curabitur a ultricies nisi, eget ultricies magna. Phasellus mollis massa
+                    risus, semper accumsan nulla cursus at. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+                <p>
+                    Etiam sodales felis at neque interdum, sed convallis metus vehicula. Mauris aliquam tellus eu arcu
+                    mattis mattis. Donec dolor libero, maximus ac semper sit amet, maximus nec justo. In vel neque
+                    bibendum, porta orci ac, auctor neque. Nulla et consequat mauris. Nulla vel purus sollicitudin,
+                    ultricies elit tristique, iaculis sem. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                    Nam vitae tortor ut sem blandit tempus et eu felis. Nulla hendrerit eu ante quis luctus. Maecenas et
+                    sodales augue, non egestas ante.
+                </p>
+                <p>
+                    Etiam turpis lorem, rhoncus congue gravida id, luctus vitae metus. Duis accumsan, ligula vitae
+                    eleifend
+                    porttitor, mauris neque dignissim nisl, vel pellentesque orci est a felis. Suspendisse vitae sodales
+                    turpis, eget aliquet purus. Donec eu magna ut lorem convallis gravida. Nunc ligula nisi, viverra ac
+                    elementum eu, viverra id ante. Vestibulum vel felis elit. Praesent auctor consectetur interdum.
+                    Donec
+                    ultricies pharetra dictum. Maecenas ornare, ex ac semper mattis, risus purus scelerisque est, sit
+                    amet
+                    euismod lectus dui eget tellus. Praesent lobortis sem vel felis convallis, sed imperdiet neque
+                    dapibus.
+                </p>
+                <p>
+                    Curabitur lectus mauris, aliquet sit amet mi sodales, scelerisque rutrum metus. Vestibulum eu mattis
+                    velit, ac luctus dolor. Pellentesque lobortis nunc vitae nunc convallis suscipit. Mauris ut laoreet
+                    libero. Nulla lobortis, enim a porta tempor, lacus felis suscipit elit, semper posuere risus sapien
+                    finibus arcu. Pellentesque diam ipsum, venenatis nec dolor quis, posuere malesuada risus. Integer
+                    vel
+                    metus massa. Morbi facilisis mauris et mi venenatis fermentum.
                 </p>
             </div>
             <div class="introduction-expanded-link">
                 <a (click)="toggle()">
-                    Leer más<i class="fas fa-angle-down"></i>
+                    {{ toggleText }} <i class="fas"
+                        [ngClass]="{'fa-angle-up' : isExpanded, 'fa-angle-down' : !isExpanded}"></i>
                 </a>
             </div>
+        </div>
+    </section>
+    <section class="regions">
+        <h2 class="section-name">Qué ver en {{ country.name }}</h2>
+        <div class="section-content">
+            <mat-tab-group>
+                <mat-tab label="Ciudades">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at luctus mi. Quisque vel purus
+                        vestibulum, mollis erat at, egestas mi. Pellentesque faucibus, nulla nec luctus consectetur,
+                        nunc
+                        nisi tristique diam, et imperdiet enim leo id turpis. Nulla lectus libero, suscipit a massa sed,
+                        vestibulum rutrum lacus. Curabitur a ultricies nisi, eget ultricies magna. Phasellus mollis
+                        massa
+                        risus, semper accumsan nulla cursus at. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                    <p>
+                        Etiam sodales felis at neque interdum, sed convallis metus vehicula. Mauris aliquam tellus eu
+                        arcu
+                        mattis mattis. Donec dolor libero, maximus ac semper sit amet, maximus nec justo. In vel neque
+                        bibendum, porta orci ac, auctor neque. Nulla et consequat mauris. Nulla vel purus sollicitudin,
+                        ultricies elit tristique, iaculis sem. Interdum et malesuada fames ac ante ipsum primis in
+                        faucibus.
+                        Nam vitae tortor ut sem blandit tempus et eu felis. Nulla hendrerit eu ante quis luctus.
+                        Maecenas et
+                        sodales augue, non egestas ante.
+                    </p>
+                </mat-tab>
+                <mat-tab label="Regiones">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at luctus mi. Quisque vel purus
+                        vestibulum, mollis erat at, egestas mi. Pellentesque faucibus, nulla nec luctus consectetur,
+                        nunc
+                        nisi tristique diam, et imperdiet enim leo id turpis. Nulla lectus libero, suscipit a massa sed,
+                        vestibulum rutrum lacus. Curabitur a ultricies nisi, eget ultricies magna. Phasellus mollis
+                        massa
+                        risus, semper accumsan nulla cursus at. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                    <p>
+                        Etiam sodales felis at neque interdum, sed convallis metus vehicula. Mauris aliquam tellus eu
+                        arcu
+                        mattis mattis. Donec dolor libero, maximus ac semper sit amet, maximus nec justo. In vel neque
+                        bibendum, porta orci ac, auctor neque. Nulla et consequat mauris. Nulla vel purus sollicitudin,
+                        ultricies elit tristique, iaculis sem. Interdum et malesuada fames ac ante ipsum primis in
+                        faucibus.
+                        Nam vitae tortor ut sem blandit tempus et eu felis. Nulla hendrerit eu ante quis luctus.
+                        Maecenas et
+                        sodales augue, non egestas ante.
+                    </p>
+                    <p>
+                        Etiam turpis lorem, rhoncus congue gravida id, luctus vitae metus. Duis accumsan, ligula vitae
+                        eleifend
+                        porttitor, mauris neque dignissim nisl, vel pellentesque orci est a felis. Suspendisse vitae
+                        sodales
+                        turpis, eget aliquet purus. Donec eu magna ut lorem convallis gravida. Nunc ligula nisi, viverra
+                        ac
+                        elementum eu, viverra id ante. Vestibulum vel felis elit. Praesent auctor consectetur interdum.
+                        Donec
+                        ultricies pharetra dictum. Maecenas ornare, ex ac semper mattis, risus purus scelerisque est,
+                        sit
+                        amet
+                        euismod lectus dui eget tellus. Praesent lobortis sem vel felis convallis, sed imperdiet neque
+                        dapibus.
+                    </p>
+                </mat-tab>
+                <mat-tab label="Lo Imprescindible">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at luctus mi. Quisque vel purus
+                        vestibulum, mollis erat at, egestas mi. Pellentesque faucibus, nulla nec luctus consectetur,
+                        nunc
+                        nisi tristique diam, et imperdiet enim leo id turpis. Nulla lectus libero, suscipit a massa sed,
+                        vestibulum rutrum lacus. Curabitur a ultricies nisi, eget ultricies magna. Phasellus mollis
+                        massa
+                        risus, semper accumsan nulla cursus at. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                </mat-tab>
+            </mat-tab-group>
         </div>
     </section>
 </div>

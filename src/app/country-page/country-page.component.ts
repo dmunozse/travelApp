@@ -44,6 +44,7 @@ export class CountryPageComponent implements OnInit {
   @HostBinding('@pageAnimations')
   public animatePage = true;
   public isExpanded = false;
+  public toggleText = 'Leer más';
 
   country: Country;
 
@@ -65,6 +66,7 @@ export class CountryPageComponent implements OnInit {
 
   toggle() {
     this.isExpanded = !this.isExpanded;
+    this.toggleText = !this.isExpanded ? 'Leer más' : 'Leer menos';
   }
 
 }
