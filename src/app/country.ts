@@ -4,4 +4,5 @@ export class Country {
   name: string;
   src: string;
   url: string;
+  description: string;
 }
